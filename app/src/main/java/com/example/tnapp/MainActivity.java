@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getNews();
+        Log.d(TAG, "Main UI code is running!");
+
+    }
+
+    private void getNews() {
         final ActivityMainBindingImpl binding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
 
         TextView gNews = findViewById(R.id.gnews);
@@ -93,8 +100,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-        Log.d(TAG, "Main UI code is running!");
-
     }
 
     private CurrentNews getCurrentDetails(String jsonData) throws JSONException {
@@ -141,5 +146,9 @@ public class MainActivity extends AppCompatActivity {
     private void alertUserAboutError() {
         AlertDialogFragment dialog = new AlertDialogFragment();
         dialog.show(getSupportFragmentManager(), "error_dialog");
+    }
+
+    public void refreshOnClick(View view) {
+        getNews();
     }
 }

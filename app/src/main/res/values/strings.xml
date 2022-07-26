@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">tnApp</string>
+    <string name="app_name">Tech News</string>
     <string name="error_title">Oops!</string>
     <string name="error_message">There was an error</string>
     <string name="error_button_ok_text">OK</string>
